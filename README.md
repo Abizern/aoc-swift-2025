@@ -12,7 +12,7 @@ Based on the [swift-aoc-starter-example](https://github.com/apple/swift-aoc-star
 
 ### Major changes from the forked template
 
-- Swift 6 (Have fun with Sendable Types)
+- Swift 6.2 (Have fun with Sendable Types)
 - Swift Testing instead of XCTest
 
 ## Challenges
