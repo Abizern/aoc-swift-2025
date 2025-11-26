@@ -63,7 +63,7 @@ builds the binary with full optimizations, and benchmarks the challenge for day 
 
 ## Formatting and Linting
 
-I`m trying out 2 space indents, enforced by the `.editorconfig` file.
+I'm trying out 2 space indents, enforced by the `.editorconfig` file.
 
 I use Swiftformat so this works for me:
 
