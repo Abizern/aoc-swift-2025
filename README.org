@@ -34,7 +34,6 @@ In either case, add the solution to the list of available solutions:
 // Add each new day implementation to this array:
 let allChallenges: [any AdventDay] = [
 -  Day00()
-+  Day00(),
 +  Day01(),
 ]
 #+end_src
