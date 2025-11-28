@@ -1,9 +1,9 @@
 import Foundation
 
-struct Day00: AdventDay, Sendable {
+struct Day01: AdventDay, Sendable {
   // Save your data in a corresponding text file in the `Data` directory.
   let data: String
-  let day = 0
+  let day = 1
   let puzzleName: String = "--- Day 0: Placeholder! ---"
 
   init(data: String) {
@@ -17,4 +17,4 @@ struct Day00: AdventDay, Sendable {
 }
 
 // Add any extra code and types in here to separate it from the required behaviour
-extension Day00 {}
+extension Day01 {}

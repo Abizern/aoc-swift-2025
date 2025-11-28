@@ -9,7 +9,7 @@ struct NewDay: CommandPlugin {
     }
     guard let dayArgument = arguments.first,
           let dayNumber = Int(dayArgument),
-          (1 ... 25).contains(dayNumber)
+          (1 ... 12).contains(dayNumber)
     else {
       throw NewDayError.message("Please provide a number between 1 and 25 inclusive")
     }
