@@ -5,16 +5,10 @@
 Daily programming puzzles at [Advent of Code](<https://adventofcode.com/>), by
 [Eric Wastl](<http://was.tl/>).
 
-## Template 
+## Requirements
+- Swift 6.2
 
-Based on the [swift-aoc-starter-example](https://github.com/apple/swift-aoc-starter-example/) provided by Apple
-
-### Major changes from the forked template
-
-- Swift 6.2 (Have fun with Sendable Types)
-- Swift Testing instead of XCTest
-
-## Challenges
+## Set up for challenges
 
 The challenges assume three files (replace 00 with the day of the challenge).
 
@@ -60,6 +54,11 @@ swift run -c release AdventOfCode --benchmark 3
 
 builds the binary with full optimizations, and benchmarks the challenge for day 3.
 
+## Input Files
+The creator of Advent of Code requests that personal input files are not added to repositories, so they need to  be added manually.
+
+The input files should be added to the `Sources/Data/` folder named Day<XX>.txt.
+
 ## Formatting and Linting
 
 I'm trying out 2 space indents, enforced by the `.editorconfig` file.
@@ -70,3 +69,11 @@ I use Swiftformat so this works for me:
 swiftformat .
 ```
 
+## Template 
+
+Based on the [swift-aoc-starter-example](https://github.com/apple/swift-aoc-starter-example/) provided by Apple
+
+### Major changes from the forked template
+
+- Swift 6.2 (Have fun with Sendable Types)
+- Swift Testing instead of XCTest
