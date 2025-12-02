@@ -11,26 +11,23 @@ struct Day02Tests {
       let day = Day02(data: testInput)
       #expect(day.ranges.count == 11)
       #expect(day.ranges[0] == (11, 22))
-      
     }
   }
-  
+
   @Suite("Tests on sample inputs")
   struct SolutionsTests {
     let day = Day02(data: testInput)
-    
+
     @Test("Part1 example")
     func testPart1() async throws {
       let result = try await day.part1()
-      #expect(result == 1227775554)
+      #expect(result == 1_227_775_554)
     }
-    
+
     @Test("Part2 example")
     func testPart2() async throws {
-      await withKnownIssue {
-        let result = try await day.part2()
-        #expect(result == 10)
-      }
+      let result = try await day.part2()
+      #expect(result == 4_174_379_265)
     }
   }
 }
