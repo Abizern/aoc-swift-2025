@@ -9,22 +9,22 @@ struct Day02Tests {
     @Test("Test parser implementation")
     func parseInput() {
       let day = Day02(data: testInput)
-
+      #expect(day.ranges.count == 11)
+      #expect(day.ranges[0] == (11, 22))
+      
     }
   }
-
+  
   @Suite("Tests on sample inputs")
   struct SolutionsTests {
     let day = Day02(data: testInput)
-
+    
     @Test("Part1 example")
     func testPart1() async throws {
-      await withKnownIssue {
-        let result = try await day.part1()
-        #expect(result == 10)
-      }
+      let result = try await day.part1()
+      #expect(result == 1227775554)
     }
-
+    
     @Test("Part2 example")
     func testPart2() async throws {
       await withKnownIssue {

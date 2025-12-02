@@ -1,6 +1,15 @@
 {
-  "originHash" : "e964172fdfa657acc2a7ebb2c017a74f89f4b17d8582ecca3d061d982d49a0d8",
+  "originHash" : "82f5863756285e78c2b32480021396ca1aa7466401cd468a57999a57d6263ec2",
   "pins" : [
+    {
+      "identity" : "aoccommon",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Abizern/AoCCommon",
+      "state" : {
+        "revision" : "0b893d63cea00da7e5bb6168d7feb99ae20771bf",
+        "version" : "0.2.2"
+      }
+    },
     {
       "identity" : "swift-algorithms",
       "kind" : "remoteSourceControl",
