@@ -36,19 +36,16 @@ extension Day02 {
   }
 
   func hasRepeatedSequence(_ number: Int) -> Bool {
-    let str = String(number)
-    let length = str.count
-    guard length >= 2 else { return false }
+    let s = String(number)
+    guard s.count >= 2 else { return false }
 
-    for size in 2 ... length {
-      if length % size == 0,
-         Set(str.chunks(ofCount: length / size)).count == 1
-      {
-        return true
-      }
-    }
+    let doubled = s + s
+    let start = doubled.index(after: doubled.startIndex)
+    let end = doubled.index(before: doubled.endIndex)
+    let middle = doubled[start ..< end]
 
-    return false
+    // s is a repetition of some substring iff it appears in (s+s)[1..-2]
+    return middle.contains(s)
   }
 
   func invalidIDs(in rng: (Int, Int), predicate: (Int) -> Bool) -> [Int] {
