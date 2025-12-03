@@ -14,6 +14,12 @@ struct Day03: AdventDay, Sendable {
   func part1() async throws -> Int {
     banks.map(largestNumber).reduce(into: 0, +=)
   }
+
+  func part2() async throws -> Int {
+    banks
+      .map { bubbleDigits($0, length: 12).toInt() }
+      .reduce(into: 0, +=)
+  }
 }
 
 // Add any extra code and types in here to separate it from the required behaviour
@@ -38,6 +44,4 @@ extension Day03 {
     units = max(units, last)
     return tens * 10 + units
   }
-
-
 }
