@@ -4,24 +4,14 @@ import Testing
 
 @Suite("Day03 Tests")
 struct Day03Tests {
-  @Suite("Parser Tests")
-  struct ParserTests {
-    @Test("Test parser implementation")
-    func parseInput() {
-      let day = Day03(data: testInput)
-    }
-  }
-
   @Suite("Tests on sample inputs")
   struct SolutionsTests {
     let day = Day03(data: testInput)
 
     @Test("Part1 example")
     func testPart1() async throws {
-      await withKnownIssue {
-        let result = try await day.part1()
-        #expect(result == 10)
-      }
+      let result = try await day.part1()
+      #expect(result == 357)
     }
 
     @Test("Part2 example")
@@ -36,4 +26,8 @@ struct Day03Tests {
 
 private let testInput =
   """
+  987654321111111
+  811111111111119
+  234234234234278
+  818181911112111
   """

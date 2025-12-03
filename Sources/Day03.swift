@@ -1,23 +1,43 @@
+import AoCCommon
 import Foundation
 
 struct Day03: AdventDay, Sendable {
-  // Save your data in a corresponding text file in the `Data` directory.
-  let data: String
+  let banks: [[Int]]
   let day = 3
-  let puzzleName: String = "--- Day 0: Placeholder! ---"
+  let puzzleName: String = "--- Day 3: Lobby ---"
 
   init(data: String) {
-    self.data = data
+    banks = try! SingleDigitLinesParser().parse(data)
   }
 
   // Replace this with your solution for the first part of the day's challenge.
   func part1() async throws -> Int {
-    0
+    banks.map(largestNumber).reduce(into: 0, +=)
   }
 }
 
 // Add any extra code and types in here to separate it from the required behaviour
-extension Day03 {}
+extension Day03 {
+  func largestNumber(_ numbers: [Int]) -> Int {
+    let leading = numbers.dropLast()
+    let last = numbers.last!
 
-// Add any specific code for parsing here
-extension Day03 {}
+    var (tens, units) = leading.reduce(into: (0, 0)) { accumulator, n in
+      switch (accumulator, n) {
+      case let ((0, _), n):
+        accumulator = (n, 0)
+      case let ((a, _), n) where n > a:
+        accumulator = (n, 0)
+      case let ((a, b), n) where n > b:
+        accumulator = (a, n)
+      default:
+        break
+      }
+    }
+
+    units = max(units, last)
+    return tens * 10 + units
+  }
+
+
+}

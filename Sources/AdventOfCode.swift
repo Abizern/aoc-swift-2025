@@ -48,11 +48,11 @@ struct AdventOfCode: AsyncParsableCommand {
       }
     }
     switch result! {
-    case .success(let success):
+    case let .success(success):
       print("\(named): \(success)")
-    case .failure(let failure as PartUnimplemented):
+    case let .failure(failure as PartUnimplemented):
       print("Day \(failure.day) part \(failure.part) unimplemented")
-    case .failure(let failure):
+    case let .failure(failure):
       print("\(named): Failed with error: \(failure)")
     }
     return timing

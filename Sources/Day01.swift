@@ -22,9 +22,9 @@ struct Day01: AdventDay, Sendable {
 
     for turn in turns {
       switch turn {
-      case .left(let val):
+      case let .left(val):
         position = mod(position - val, 100)
-      case .right(let val):
+      case let .right(val):
         position = mod(position + val, 100)
       }
 
@@ -42,13 +42,13 @@ struct Day01: AdventDay, Sendable {
 
     for turn in turns {
       switch (turn, position) {
-      case (.left(let val), 0):
+      case let (.left(val), 0):
         result += val / 100
         position = mod(position - val, 100)
-      case (.right(let val), 0):
+      case let (.right(val), 0):
         result += val / 100
         position = mod(position + val, 100)
-      case (.left(let val), _):
+      case let (.left(val), _):
         result += val / 100
         let newPosition = mod(position - val, 100)
         if newPosition == 0 {
@@ -57,7 +57,7 @@ struct Day01: AdventDay, Sendable {
           result += 1
         }
         position = newPosition
-      case (.right(let val), _):
+      case let (.right(val), _):
         result += val / 100
         let newPosition = mod(position + val, 100)
         if newPosition == 0 {
