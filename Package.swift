@@ -22,7 +22,7 @@ let package = Package(
       url: "https://github.com/apple/swift-collections.git", "1.3.0" ..< "1.4.0",
     ),
     .package(
-      url: "https://github.com/Abizern/AoCCommon", "0.2.4" ..< "0.3.0",
+      url: "https://github.com/Abizern/AoCCommon", "0.2.6" ..< "0.3.0",
     ),
 //    .package(path: "../AoCCommon"),
     .package(path: "NewDayPlugin"),

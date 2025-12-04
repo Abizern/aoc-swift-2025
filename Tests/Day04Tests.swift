@@ -16,10 +16,8 @@ struct Day04Tests {
 
     @Test("Part2 example")
     func testPart2() async throws {
-      await withKnownIssue {
-        let result = try await day.part2()
-        #expect(result == 10)
-      }
+      let result = try await day.part2()
+      #expect(result == 43)
     }
   }
 }

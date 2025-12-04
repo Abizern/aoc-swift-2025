@@ -11,23 +11,53 @@ struct Day04: AdventDay, Sendable {
   }
 
   func part1() async throws -> Int {
-    var count = 0
-    for r in 0 ..< grid.height {
-      for c in 0 ..< grid.width {
-        let neighbors = grid.neighbours(Cell(r, c)).map { grid[$0]! }
-        if grid[r, c] == "@",
-           neighbors.count(where: { $0 == "@" }) < 4
-        {
-          count += 1
-        }
-      }
-    }
+    let newGrid = remmoveRolls(from: grid)
+    return grid.numberOfRolls - newGrid.numberOfRolls
+  }
 
-    return count
+  func part2() async throws -> Int {
+    var start = grid
+    var mutated = remmoveRolls(from: grid)
+
+    repeat {
+      start = mutated
+      mutated = remmoveRolls(from: start)
+    } while mutated != start
+
+    return grid.numberOfRolls - mutated.numberOfRolls
   }
 }
 
-extension Day04 {}
+extension Day04 {
+  func isRoll(_ char: Character) -> Bool {
+    char == "@"
+  }
 
-// Add any specific code for parsing here
-extension Day04 {}
+  func remmoveRolls(from grid: Grid<Character>) -> Grid<Character> {
+    var rows = [[Character]]()
+    for r in 0 ..< grid.height {
+      var row = [Character](repeating: ".", count: grid.width)
+      for c in 0 ..< grid.width {
+        let cell = Cell(r, c)
+        if grid[cell]!.isRoll,
+           grid.neighbours(cell).map({ grid[$0]! }).count(where: \.isRoll) >= 4
+        {
+          row[c] = "@"
+        }
+      }
+      rows.append(row)
+    }
+
+    return Grid(rows: rows)
+  }
+}
+
+private extension Character {
+  var isRoll: Bool { self == "@" }
+}
+
+private extension Grid where Element == Character {
+  var numberOfRolls: Int {
+    cells(where: \.isRoll).count
+  }
+}
