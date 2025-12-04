@@ -10,10 +10,8 @@ struct Day04Tests {
 
     @Test("Part1 example")
     func testPart1() async throws {
-      await withKnownIssue {
-        let result = try await day.part1()
-        #expect(result == 8)
-      }
+      let result = try await day.part1()
+      #expect(result == 13)
     }
 
     @Test("Part2 example")
@@ -28,14 +26,14 @@ struct Day04Tests {
 
 private let testInput =
   """
-  ..xx.xx@x.
-  x@@.@.@.@@
-  @@@@@.x.@@
+  ..@@.@@@@.
+  @@@.@.@.@@
+  @@@@@.@.@@
   @.@@@@..@.
-  x@.@@@@.@x
+  @@.@@@@.@@
   .@@@@@@@.@
   .@.@.@.@@@
-  x.@@@.@@@@
+  @.@@@.@@@@
   .@@@@@@@@.
-  x.x.@@@.x.
+  @.@.@@@.@.
   """

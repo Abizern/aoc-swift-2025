@@ -1,16 +1,29 @@
+import AoCCommon
 import Foundation
 
 struct Day04: AdventDay, Sendable {
-  let data: String
+  let grid: Grid<Character>
   let day = 4
   let puzzleName: String = "--- Day 4: Printing Department ---"
 
   init(data: String) {
-    self.data = data
+    grid = try! Grid(rows: data.characterLines())
   }
 
   func part1() async throws -> Int {
-    0
+    var count = 0
+    for r in 0 ..< grid.height {
+      for c in 0 ..< grid.width {
+        let neighbors = grid.neighbours(Cell(r, c)).map { grid[$0]! }
+        if grid[r, c] == "@",
+           neighbors.count(where: { $0 == "@" }) < 4
+        {
+          count += 1
+        }
+      }
+    }
+
+    return count
   }
 }
 
