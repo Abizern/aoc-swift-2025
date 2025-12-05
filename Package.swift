@@ -16,7 +16,7 @@ let package = Package(
       url: "https://github.com/apple/swift-algorithms.git", "1.2.1" ..< "1.3.0",
     ),
     .package(
-      url: "https://github.com/Abizern/AoCCommon", "0.2.9" ..< "0.3.0",
+      url: "https://github.com/Abizern/AoCCommon", "0.2.10" ..< "0.3.0",
     ),
     //    .package(path: "../AoCCommon"),
     .package(

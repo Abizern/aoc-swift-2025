@@ -2,14 +2,14 @@ import AoCCommon
 import Foundation
 
 struct Day05: AdventDay, Sendable {
-  let ranges: [Range]
+  let ranges: [ClosedRange<Int>]
   let ids: [Int]
   let day = 5
   let puzzleName: String = "--- Day 5: Cafeteria ---"
 
   init(data: String) {
     let (ranges, ids) = try! InputParser().parse(data)
-    self.ranges = ranges.map(Range.init)
+    self.ranges = ranges.map(Day05.makeRange)
     self.ids = ids
   }
 
@@ -25,21 +25,17 @@ struct Day05: AdventDay, Sendable {
     }
     return result
   }
+
+  func part2() async throws -> Int {
+    ranges
+      .merged()
+      .reduce(into: 0) { $0 += $1.upperBound - $1.lowerBound + 1 }
+  }
 }
 
 extension Day05 {
-  struct Range: Sendable, Equatable {
-    let lower: Int
-    let upper: Int
-
-    init(pair: (Int, Int)) {
-      lower = min(pair.0, pair.1)
-      upper = max(pair.0, pair.1)
-    }
-
-    func contains(_ id: Int) -> Bool {
-      id >= lower && id <= upper
-    }
+  static func makeRange(_ pair: (Int, Int)) -> ClosedRange<Int> {
+    min(pair.0, pair.1) ... max(pair.0, pair.1)
   }
 }
 
