@@ -16,15 +16,10 @@ struct Day04: AdventDay, Sendable {
   }
 
   func part2() async throws -> Int {
-    var start = grid
-    var mutated = remmoveRolls(from: grid)
+    let start = grid
+    let end = iterateUntilStable(grid) { remmoveRolls(from: $0) }.last!
 
-    repeat {
-      start = mutated
-      mutated = remmoveRolls(from: start)
-    } while mutated != start
-
-    return grid.numberOfRolls - mutated.numberOfRolls
+    return start.numberOfRolls - end.numberOfRolls
   }
 }
 

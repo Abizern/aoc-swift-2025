@@ -1,13 +1,13 @@
 {
-  "originHash" : "b9a704ac97cfb7568b651abb10c7a2f53c69a683778f95d6e4ff0c13f4151dc5",
+  "originHash" : "712d8b9d4e6135a10db8c5e6149cf3cf441b69dcb5fb56bd25424ba8ca4c43de",
   "pins" : [
     {
       "identity" : "aoccommon",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Abizern/AoCCommon",
       "state" : {
-        "revision" : "f25e980171a59c6c088fc96181af07ae6059f7a9",
-        "version" : "0.2.6"
+        "revision" : "d66052803c88d815eb11a7d851f9ea0f50f48f5b",
+        "version" : "0.2.8"
       }
     },
     {
