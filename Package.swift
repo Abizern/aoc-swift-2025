@@ -3,9 +3,9 @@ import PackageDescription
 
 let dependencies: [Target.Dependency] = [
   .product(name: "Algorithms", package: "swift-algorithms"),
+  .product(name: "AoCCommon", package: "AoCCommon"),
   .product(name: "ArgumentParser", package: "swift-argument-parser"),
   .product(name: "Collections", package: "swift-collections"),
-  .product(name: "AoCCommon", package: "AoCCommon"),
 ]
 
 let package = Package(
@@ -16,15 +16,15 @@ let package = Package(
       url: "https://github.com/apple/swift-algorithms.git", "1.2.1" ..< "1.3.0",
     ),
     .package(
+      url: "https://github.com/Abizern/AoCCommon", "0.2.8" ..< "0.3.0",
+    ),
+    //    .package(path: "../AoCCommon"),
+    .package(
       url: "https://github.com/apple/swift-argument-parser.git", "1.6.2" ..< "1.7.0",
     ),
     .package(
       url: "https://github.com/apple/swift-collections.git", "1.3.0" ..< "1.4.0",
     ),
-    .package(
-      url: "https://github.com/Abizern/AoCCommon", "0.2.8" ..< "0.3.0",
-    ),
-//    .package(path: "../AoCCommon"),
     .package(path: "NewDayPlugin"),
   ],
   targets: [
