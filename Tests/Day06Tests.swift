@@ -9,11 +9,9 @@ struct Day06Tests {
     @Test("Test parser implementation")
     func parseInput() {
       let day = Day06(data: testInput)
-      #expect(day.inputs.count == 4)
-      #expect(day.inputs[0].count == 3)
-      #expect(day.inputs[0] == [123, 45, 6])
-      #expect(day.operators.count == 4)
-      #expect(day.operators == ["*", "+", "*", "+"])
+      #expect(day.digitLines.count == 3)
+      #expect(day.digitLines.first?.count == 4)
+      #expect(day.operations == [.multiply, .add, .multiply, .add])
     }
   }
 
@@ -29,10 +27,8 @@ struct Day06Tests {
 
     @Test("Part2 example")
     func testPart2() async throws {
-      await withKnownIssue {
-        let result = try await day.part2()
-        #expect(result == 10)
-      }
+      let result = try await day.part2()
+      #expect(result == 3_263_827)
     }
   }
 }
@@ -40,7 +36,7 @@ struct Day06Tests {
 private let testInput =
   """
   123 328  51 64 
-  45 64  387 23 
-  6 98  215 314
-  *   +   *   + 
+   45 64  387 23 
+    6 98  215 314
+  *   +   *   +  
   """
