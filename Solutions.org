@@ -1,25 +1,25 @@
 * List of solutions
 
-| Day | Title                      |      Part 1 |           Part2 |
-|-----+----------------------------+-------------+-----------------|
-|   1 | Day 1: Secret Entrance     |        1102 |            6175 |
-|   2 | Day 2: Gift Shop           | 18595663903 |     19058204438 |
-|   3 | Day 3: Lobby               |       17452 | 173300819005913 |
-|   4 | Day 4: Printing Department |        1384 |            8013 |
-|   5 | Day 5: Cafeteria           |         744 | 347468726696961 |
-|   6 |                            |             |                 |
-|   7 |                            |             |                 |
-|   8 |                            |             |                 |
-|   9 |                            |             |                 |
-|  10 |                            |             |                 |
-|  11 |                            |             |                 |
-|  12 |                            |             |                 |
+| Day | Title                      |        Part 1 |           Part2 |
+|-----+----------------------------+---------------+-----------------|
+|   1 | Day 1: Secret Entrance     |          1102 |            6175 |
+|   2 | Day 2: Gift Shop           |   18595663903 |     19058204438 |
+|   3 | Day 3: Lobby               |         17452 | 173300819005913 |
+|   4 | Day 4: Printing Department |          1384 |            8013 |
+|   5 | Day 5: Cafeteria           |           744 | 347468726696961 |
+|   6 | Day 6: Trash Compactor     | 5227286044585 |                 |
+|   7 |                            |               |                 |
+|   8 |                            |               |                 |
+|   9 |                            |               |                 |
+|  10 |                            |               |                 |
+|  11 |                            |               |                 |
+|  12 |                            |               |                 |
 
 * Stars
 
 | Period                    | number |
 |---------------------------+--------|
-| Achieved during the month |     10 |
+| Achieved during the month |     11 |
 | Achieved later            |        |
-| Total                     |     10 |
+| Total                     |     11 |
 #+TBLFM: @4$2 = @2$2 + @3$2
