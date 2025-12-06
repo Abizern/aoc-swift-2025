@@ -4,7 +4,7 @@ import Foundation
 struct Day06: AdventDay, Sendable {
   let data: String
   let day = 6
-  let puzzleName: String = "--- Day 6: Placeholder! ---"
+  let puzzleName: String = "--- Day 6: Trash Compactor ---"
 
   init(data: String) {
     self.data = data
