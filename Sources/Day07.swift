@@ -34,9 +34,24 @@ struct Day07: AdventDay, Sendable {
     }
     return count
   }
+
+  func part2() async throws -> Int {
+    var timelines: [Cell: Int] = [startCell: 1]
+
+    for _ in startCell.row ..< grid.height - 1 {
+      var newTimelines: [Cell: Int] = [:]
+      for (beam, count) in timelines {
+        let newBeam = beam.offset(by: .down)
+        if grid[newBeam] == "." {
+          newTimelines[newBeam, default: 0] += count
+        } else {
+          newTimelines[newBeam.offset(by: .left), default: 0] += count
+          newTimelines[newBeam.offset(by: .right), default: 0] += count
+        }
+      }
+      timelines = newTimelines
+    }
+
+    return timelines.values.reduce(into: 0, +=)
+  }
 }
-
-extension Day07 {}
-
-// Parsing
-extension Day07 {}
