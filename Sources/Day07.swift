@@ -15,7 +15,24 @@ struct Day07: AdventDay, Sendable {
   }
 
   func part1() async throws -> Int {
-    0
+    var beams: Set<Cell> = [startCell]
+    var count = 0
+
+    for _ in startCell.row ..< grid.height - 1 {
+      var accumulator = Set<Cell>()
+      for beam in beams {
+        let newBeam = beam.offset(by: .down)
+        if grid[newBeam] == "." {
+          accumulator.insert(newBeam)
+        } else {
+          count += 1
+          accumulator.insert(newBeam.offset(by: .left))
+          accumulator.insert(newBeam.offset(by: .right))
+        }
+      }
+      beams = accumulator
+    }
+    return count
   }
 }
 
