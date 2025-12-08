@@ -103,28 +103,3 @@ extension Day08 {
     return sizes.sorted(by: >)
   }
 }
-
-extension Day08 {
-  struct Vector3D: Hashable, CustomStringConvertible {
-    var description: String {
-      "(\(x), \(y), \(z))"
-    }
-
-    let x: Int
-    let y: Int
-    let z: Int
-
-    init(_ list: [Int]) {
-      x = list[0]
-      y = list[1]
-      z = list[2]
-    }
-
-    func squaredDistanceTo(_ other: Vector3D) -> Int {
-      let dx = x - other.x
-      let dy = y - other.y
-      let dz = z - other.z
-      return dx * dx + dy * dy + dz * dz
-    }
-  }
-}
