@@ -1,4 +1,3 @@
-import Accelerate
 import AoCCommon
 import Collections
 import Foundation
@@ -18,9 +17,34 @@ struct Day08: AdventDay, Sendable {
 
   func part1() async throws -> Int {
     let pairs = closestPairs.prefix(1000)
-    let chainSizes = chainSizeList(pairs).sorted(by: >).prefix(3).reduce(into: 1, *=)
+    let chainSizes = chainSizeList(pairs).prefix(3).reduce(into: 1, *=)
 
     return chainSizes
+  }
+
+  func part2() async throws -> Int {
+    let n = junctions.count
+    let pairs = closestPairs
+
+    var start = 0
+    var end = pairs.count - 1
+    var lastIndex = end
+
+    while start <= end {
+      let mid = (start + end) / 2
+
+      let sizes = chainSizeList(pairs.prefix(mid + 1))
+
+      if let largest = sizes.first, largest == n {
+        lastIndex = mid
+        end = mid - 1
+      } else {
+        start = mid + 1
+      }
+    }
+
+    let (a, b) = pairs[lastIndex]
+    return a.x * b.x
   }
 }
 
@@ -76,7 +100,7 @@ extension Day08 {
       sizes.append(currentSize)
     }
 
-    return sizes
+    return sizes.sorted(by: >)
   }
 }
 

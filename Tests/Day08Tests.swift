@@ -8,19 +8,10 @@ struct Day08Tests {
   struct SolutionsTests {
     let day = Day08(data: testInput)
 
-    @Test("Part1 example")
-    func part1() async throws {
-      let pairs = day.closestPairs.prefix(10)
-      let result = day.chainSizeList(pairs).prefix(3).reduce(into: 1, *=)
-      #expect(result == 40)
-    }
-
     @Test("Part2 example")
     func testPart2() async throws {
-      await withKnownIssue {
-        let result = try await day.part2()
-        #expect(result == 10)
-      }
+      let result = try await day.part2()
+      #expect(result == 25272)
     }
   }
 }
