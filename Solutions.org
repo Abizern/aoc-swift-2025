@@ -10,7 +10,7 @@
 |   6 | Day 6: Trash Compactor     | 5227286044585 |  10227753257799 |
 |   7 | Day 7: Laboratories        |          1573 |  15093663987272 |
 |   8 | Day 8: Playground          |         72150 |      3926518899 |
-|   9 |                            |               |                 |
+|   9 | Day 9: Movie Theater       |    4715966250 |                 |
 |  10 |                            |               |                 |
 |  11 |                            |               |                 |
 |  12 |                            |               |                 |
@@ -19,7 +19,7 @@
 
 | Period                    | number |
 |---------------------------+--------|
-| Achieved during the month |     16 |
+| Achieved during the month |     17 |
 | Achieved later            |        |
-| Total                     |     16 |
+| Total                     |     17 |
 #+TBLFM: @4$2 = @2$2 + @3$2
