@@ -10,7 +10,7 @@ struct Day10Tests {
     func singleMachine() throws {
       let machine = try Day10.MachineParser().parse(singleTestInput)
       #expect(machine.buttons == [.off, .on, .on, .off])
-      #expect(machine.switches == [[3], [1, 3], [2], [2, 3], [0, 2], [0, 1]])
+      #expect(machine.wirings == [[3], [1, 3], [2], [2, 3], [0, 2], [0, 1]])
       #expect(machine.joltages == [3, 5, 4, 7])
     }
 
@@ -27,10 +27,8 @@ struct Day10Tests {
 
     @Test("Part1 example")
     func testPart1() async throws {
-      await withKnownIssue {
-        let result = try await day.part1()
-        #expect(result == 10)
-      }
+      let result = try await day.part1()
+      #expect(result == 7)
     }
 
     @Test("Part2 example")

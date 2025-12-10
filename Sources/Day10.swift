@@ -1,4 +1,5 @@
 import AoCCommon
+import Collections
 import Foundation
 
 struct Day10: AdventDay, Sendable {
@@ -11,13 +12,13 @@ struct Day10: AdventDay, Sendable {
   }
 
   func part1() async throws -> Int {
-    0
+    machines.map(\.minimumPresses).reduce(into: 0, +=)
   }
 }
 
 extension Day10 {
   struct Machine: Equatable, Sendable {
-    enum ButtonState: Equatable, Sendable {
+    enum IndicatorState: Equatable, Sendable {
       case on
       case off
 
@@ -29,14 +30,45 @@ extension Day10 {
       }
     }
 
-    let buttons: [ButtonState]
-    let switches: [[Int]]
+    let indicators: [IndicatorState]
+    let wirings: [[Int]]
     let joltages: [Int]
 
-    init(_ parsedLine: ([ButtonState], [[Int]], [Int])) {
-      buttons = parsedLine.0
-      switches = parsedLine.1
+    init(_ parsedLine: ([IndicatorState], [[Int]], [Int])) {
+      indicators = parsedLine.0
+      wirings = parsedLine.1
       joltages = parsedLine.2
+    }
+
+    private var targetMask: Int {
+      indicators.enumerated().reduce(0) { acc, pair in
+        let (idx, state) = pair
+        guard state == .on else { return acc }
+        return acc | (1 << idx)
+      }
+    }
+
+    private func wiringMask(_ indices: [Int]) -> Int {
+      indices.reduce(0) { acc, i in
+        acc | (1 << i)
+      }
+    }
+
+    private func apply(_ masks: [Int]) -> Int {
+      masks.reduce(into: 0, ^=)
+    }
+
+    var minimumPresses: Int {
+      let target = targetMask
+      let wiringMasks = wirings.map(wiringMask)
+
+      for wiring in wiringMasks.combinations(ofCount: 1 ... wiringMasks.count).lazy {
+        if target == apply(wiring) {
+          return wiring.count
+        }
+      }
+
+      return 0
     }
   }
 }
@@ -51,7 +83,7 @@ extension Day10 {
           Prefix { $0 != "]" }
           "]"
         }
-        .map { inner in Array(inner).map(Machine.ButtonState.init) }
+        .map { inner in Array(inner).map(Machine.IndicatorState.init) }
         " "
         Many {
           "("

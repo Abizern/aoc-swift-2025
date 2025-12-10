@@ -11,7 +11,7 @@
 |   7 | Day 7: Laboratories        |          1573 |  15093663987272 |
 |   8 | Day 8: Playground          |         72150 |      3926518899 |
 |   9 | Day 9: Movie Theater       |    4715966250 |      1530527040 |
-|  10 | Day 10: Factory            |               |                 |
+|  10 | Day 10: Factory            | 491           |                 |
 |  11 |                            |               |                 |
 |  12 |                            |               |                 |
 
@@ -19,7 +19,7 @@
 
 | Period                    | number |
 |---------------------------+--------|
-| Achieved during the month |     18 |
+| Achieved during the month |     19 |
 | Achieved later            |        |
-| Total                     |     18 |
+| Total                     |     19 |
 #+TBLFM: @4$2 = @2$2 + @3$2
