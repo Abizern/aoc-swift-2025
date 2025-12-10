@@ -6,9 +6,18 @@ import Testing
 struct Day10Tests {
   @Suite("Parser Tests")
   struct ParserTests {
+    @Test("Test Parsing a single machine")
+    func singleMachine() throws {
+      let machine = try Day10.MachineParser().parse(singleTestInput)
+      #expect(machine.buttons == [.off, .on, .on, .off])
+      #expect(machine.switches == [[3], [1, 3], [2], [2, 3], [0, 2], [0, 1]])
+      #expect(machine.joltages == [3, 5, 4, 7])
+    }
+
     @Test("Test parser implementation")
     func parseInput() {
       let day = Day10(data: testInput)
+      #expect(day.machines.count == 3)
     }
   }
 
