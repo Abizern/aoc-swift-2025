@@ -12,14 +12,14 @@
 |   8 | Day 8: Playground          |         72150 |      3926518899 |
 |   9 | Day 9: Movie Theater       |    4715966250 |      1530527040 |
 |  10 | Day 10: Factory            |           491 |                 |
-|  11 | Day 11: Reactor            |           497 |                 |
+|  11 | Day 11: Reactor            |           497 | 358564784931864 |
 |  12 |                            |               |                 |
 
 * Stars
 
 | Period                    | number |
 |---------------------------+--------|
-| Achieved during the month |     20 |
+| Achieved during the month |     21 |
 | Achieved later            |        |
-| Total                     |     20 |
+| Total                     |     21 |
 #+TBLFM: @4$2 = @2$2 + @3$2

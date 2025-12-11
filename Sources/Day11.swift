@@ -12,26 +12,80 @@ struct Day11: AdventDay, Sendable {
   }
 
   func part1() async throws -> Int {
-    countPathsStartingAt("you")
+    var memo: [String: Int] = [:]
+    return countSimplePaths("you", &memo)
+  }
+
+  func part2() async throws -> Int {
+    countValidPaths()
   }
 }
 
 extension Day11 {
-  func countPathsStartingAt(_ start: String) -> Int {
-    var queue: Deque<String> = [start]
-    var count = 0
-
-    while let current = queue.popFirst() {
-      switch current {
-      case "out":
-        count += 1
-      case let next:
-        for neighbour in adjacency[next, default: []] {
-          queue.append(neighbour)
-        }
-      }
+  func countSimplePaths(_ node: String, _ memo: inout [String: Int]) -> Int {
+    if let cached = memo[node] {
+      return cached
     }
-    return count
+
+    if node == "out" {
+      memo[node] = 1
+    }
+
+    var total = 0
+    for neighbour in adjacency[node, default: []] {
+      total += countSimplePaths(neighbour, &memo)
+    }
+
+    memo[node] = total
+    return total
+  }
+
+  private struct State: Hashable {
+    let node: String
+    let mask: Int
+  }
+
+  func countValidPaths() -> Int {
+    var memo: [State: Int] = [:]
+    let start = "svr"
+    return countPaths(
+      from: start,
+      mask: 0,
+      memo: &memo,
+    )
+  }
+
+  private func countPaths(
+    from node: String,
+    mask: Int,
+    memo: inout [State: Int],
+  ) -> Int {
+    var newMask = mask
+    if node == "dac" { newMask |= 1 }
+    if node == "fft" { newMask |= 2 }
+
+    let state = State(node: node, mask: newMask)
+    if let cached = memo[state] {
+      return cached
+    }
+
+    if node == "out" {
+      let result = (newMask == 3) ? 1 : 0
+      memo[state] = result
+      return result
+    }
+
+    var total = 0
+    for neighbour in adjacency[node, default: []] {
+      total += countPaths(
+        from: neighbour,
+        mask: newMask,
+        memo: &memo,
+      )
+    }
+
+    memo[state] = total
+    return total
   }
 }
 
