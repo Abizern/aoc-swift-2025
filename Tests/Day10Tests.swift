@@ -9,7 +9,7 @@ struct Day10Tests {
     @Test("Test Parsing a single machine")
     func singleMachine() throws {
       let machine = try Day10.MachineParser().parse(singleTestInput)
-      #expect(machine.buttons == [.off, .on, .on, .off])
+      #expect(machine.indicators == [Day10.Machine.IndicatorState.off, .on, .on, .off])
       #expect(machine.wirings == [[3], [1, 3], [2], [2, 3], [0, 2], [0, 1]])
       #expect(machine.joltages == [3, 5, 4, 7])
     }
